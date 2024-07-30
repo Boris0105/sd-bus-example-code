@@ -1,5 +1,8 @@
 check the functionalities
+
 (1) system bus:  busctl introspect com.example.SystemCalculator /com/example/SystemCalculator
+
+
 (2) user bus  :  busctl --user introspect net.poettering.Calculator /net/poettering/Calculator
 
 preprocess:
