@@ -3,7 +3,9 @@
 #include <systemd/sd-bus.h>
 
 int main(int argc, char *argv[]) {
-        sd_bus_error error = SD_BUS_ERROR_NULL;
+        (void) argc;
+    	(void) argv;
+	sd_bus_error error = SD_BUS_ERROR_NULL;
         sd_bus_message *m = NULL;
         sd_bus *bus = NULL;
         const char *path;
