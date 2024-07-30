@@ -45,5 +45,18 @@ Add the followings into the file:
 # busctl introspect com.example.SystemCalculator /com/example/SystemCalculator
 
 
+(7)
+启动服务： sudo ./system-calculator-service &
+确认服务在 D-Bus 上注册：
+对于系统总线：busctl list | grep com.example.SystemCalculator
+用户总线：busctl --user list | grep com.example.SystemCalculator
+
+系统总线：
+busctl call com.example.SystemCalculator /com/example/SystemCalculator com.example.SystemCalculator Multiply xx 6 7
+busctl call com.example.SystemCalculator /com/example/SystemCalculator com.example.SystemCalculator Divide xx 42 6
+
+系统总线：
+busctl --user call com.example.SystemCalculator /com/example/SystemCalculator com.example.SystemCalculator Multiply xx 6 7
+busctl --user call com.example.SystemCalculator /com/example/SystemCalculator com.example.SystemCalculator Divide xx 42 6
 
 
