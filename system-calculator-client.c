@@ -20,6 +20,8 @@ int main(int argc, char *argv[]) {
         goto finish;
     }
 
+    int a = atoi(argv[1]);
+    int b = atoi(argv[2]);
     /* Issue the method call and store the response message in m */
     r = sd_bus_call_method(bus,
                            "com.example.SystemCalculator",           /* service to contact */
@@ -29,7 +31,7 @@ int main(int argc, char *argv[]) {
                            &error,                                   /* object to return error in */
                            &m,                                       /* return message on success */
                            "xx",                                     /* input signature */
-                           6, 7);                                    /* arguments */
+                           a,b);                                    /* arguments */
     if (r < 0) {
         fprintf(stderr, "Failed to issue method call: %s\n", error.message);
         goto finish;
