@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <systemd/sd-bus.h>
+#define UNUSED(x) (void)(x)
 
 static int method_multiply(sd_bus_message *m, void *userdata, sd_bus_error *ret_error) {
     int64_t x, y;
     int r;
-
+    UNUSED(userdata);
+    UNUSED(ret_error);
     /* Read the parameters */
     r = sd_bus_message_read(m, "xx", &x, &y);
     if (r < 0) {
@@ -21,6 +23,8 @@ static int method_multiply(sd_bus_message *m, void *userdata, sd_bus_error *ret_
 static int method_divide(sd_bus_message *m, void *userdata, sd_bus_error *ret_error) {
     int64_t x, y;
     int r;
+    UNUSED(userdata);
+    UNUSED(ret_error);
 
     /* Read the parameters */
     r = sd_bus_message_read(m, "xx", &x, &y);
@@ -50,7 +54,8 @@ int main(int argc, char *argv[]) {
     sd_bus_slot *slot = NULL;
     sd_bus *bus = NULL;
     int r;
-
+    UNUSED(argc);
+    UNUSED(argv);
     /* Connect to the user bus */
     printf("Connecting to user bus...\n");
     r = sd_bus_open_user(&bus);
